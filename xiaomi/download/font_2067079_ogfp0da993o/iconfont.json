@@ -1,0 +1,37 @@
+{
+  "id": "2067079",
+  "name": "mi-login",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "429499",
+      "name": "微信",
+      "font_class": "logo-wechat",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "599914",
+      "name": "QQ",
+      "font_class": "qq",
+      "unicode": "e66a",
+      "unicode_decimal": 58986
+    },
+    {
+      "icon_id": "670194",
+      "name": "YDUI-新浪微博",
+      "font_class": "yduixinlangweibo",
+      "unicode": "e6a3",
+      "unicode_decimal": 59043
+    },
+    {
+      "icon_id": "12975015",
+      "name": "支付宝",
+      "font_class": "zhifubao",
+      "unicode": "e637",
+      "unicode_decimal": 58935
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><title>小米账号-注册</title><link rel=stylesheet href=./css/reset.css><script src=https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js></script><script src=./js/index1.js></script><link rel=stylesheet href=./download/font_2067079_ogfp0da993o/iconfont.css></head><body><div class=both><div class=form><a class=logo href=javascript:void(0)></a><h4>注册小米账号</h4><div class=regbox><p>国家/地区</p><div class=select_regions><p class=regions>中国</p><i class=icon_cirarr></i></div><div class=region_tip_text>成功注册帐号后，国家/地区将不能被修改</div><p>手机号码</p><div class=select_regions><div class=phone><p class=cycode>+86</p><i class=icon_arrow></i></div><input type=text placeholder=请输入手机号码 id=tel></div><p>密码</p><div class=select_regions><input type=text placeholder=请输入密码 id=pwd style="border-left: 0;"></div><span></span><div class=erro style="display: none;">用户已被注册</div><input type=submit value=立即注册 class=btn></div><div class=label>已阅读并同意：小米 <a href=https://static.account.xiaomi.com/html/agreement/user/zh_CN.html class=inspect_link title=用户协议 target=_blank>用户协议</a>和<a href="https://privacy.mi.com/miaccount/zh_CN/" class=inspect_link title=隐私政策 target=_blank>隐私政策</a></div><div></div><footer><ul><li class=footer_list><a href=javascript:void(0)>简体</a>|</li><li><a>繁体</a>|</li><li><a>English</a>|</li><li><a href=https://account.xiaomi.com/helpcenter/faq target=_black>常见问题</a></li></ul><p>小米公司版权所有-京ICP备10046444- <a class=beian target=_blank href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802020134">京公网安备11010802020134号</a>-京ICP证110507号</p></footer></div></div></body></html><script>
+	var oF = document.querySelector("form");
+	var oSpan = document.querySelector("span");
+
+	var oText = document.querySelector("#tel");
+	var regTel = /^\d{9}$/;
+	var flagName = false;
+	oText.onblur = function() {
+		if (regTel.test(oText.value)) {
+			flagName = true;
+			oSpan.innerHTML = "";
+		} else {
+			flagName = false;
+			oSpan.innerHTML = "格式不正确，请输入9位数字";
+			oSpan.style.color = "red";
+		}
+	}
+	var oPassword = document.querySelector("#pwd");
+	var regPwd = /^\w{3,7}$/;
+	var flagPwd = false;
+	oPassword.onblur = function() {
+		if (regPwd.test(oPassword.value)) {
+			flagPwd = true;
+			oSpan.innerHTML = "";
+		} else {
+			flagPwd = false;
+			oSpan.innerHTML = "格式不正确，请输入3-7位字母";
+			oSpan.style.color = "red";
+		}
+	}
+
+	var oBtn = document.querySelector(".btn"); //注册
+	console.log(oBtn);
+	oBtn.onclick = function() {
+		console.log(flagName,flagPwd);
+		if (flagName && flagPwd) {
+			var xhr = new XMLHttpRequest();
+			xhr.open("get", "php/reset.php?Email=" + oText.value + "&Pwd=" + oPassword.value, true);
+			xhr.onreadystatechange = function() {
+				if (xhr.status == 200 && xhr.readyState == 4) {
+					fun(xhr.responseText);
+				}
+			}
+			xhr.send();
+		}
+
+		function fun(text) {
+			if (text == 0) {
+				alert("注册成功");
+			} else {
+				alert("注册失败");
+			}
+		}
+	}
+</script>

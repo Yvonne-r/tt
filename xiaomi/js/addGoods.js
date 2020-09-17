@@ -1,0 +1,1 @@
+"use strict";function addGoods(o,s,c){$.ajax({type:"GET",url:"php/addGoods.php",data:"&goodsName="+o+"&img="+s+"&price="+c,success:function(o){0==o?console.log("商品已拥有"):1==o&&console.log("商品添加成功")}})}

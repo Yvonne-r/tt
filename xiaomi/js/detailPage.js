@@ -1,0 +1,1 @@
+"use strict";var btn=document.getElementsByClassName("btn-primary");btn[0].onclick=function(){var e=document.getElementById("appName").innerHTML;document.getElementById("allMoney").innerHTML;addGoods(e),window.location.href="cart.html"};
